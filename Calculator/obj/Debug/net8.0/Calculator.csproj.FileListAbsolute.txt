@@ -1,0 +1,11 @@
+c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.AssemblyInfoInputs.cache
+c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.AssemblyInfo.cs
+c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\bin\Debug\net8.0\Calculator.deps.json
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\bin\Debug\net8.0\Calculator.dll
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\bin\Debug\net8.0\Calculator.pdb
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.dll
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\refint\Calculator.dll
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.pdb
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\ref\Calculator.dll

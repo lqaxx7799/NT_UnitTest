@@ -1,0 +1,6 @@
+@Nutrition.APIs_HostAddress = http://localhost:5259
+
+GET {{Nutrition.APIs_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
