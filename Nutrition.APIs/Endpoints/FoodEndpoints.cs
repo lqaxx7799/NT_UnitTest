@@ -5,7 +5,7 @@ namespace Nutrition.APIs;
 
 public static class FoodEndpoints
 {
-    public static void UseFoodEndpoins(this WebApplication app)
+    public static void UseFoodEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("food").WithOpenApi();
 
@@ -21,7 +21,7 @@ public static class FoodEndpoints
             return Results.Ok(food);
         });
 
-        group.MapPost("add", async ([FromBody] Food food, [FromServices] NutritionContext nutritionContext) =>
+        group.MapPost("create", async ([FromBody] Food food, [FromServices] NutritionContext nutritionContext) =>
         {
             food.CreatedAt = DateTimeOffset.Now;
             food.ModifiedAt = null;

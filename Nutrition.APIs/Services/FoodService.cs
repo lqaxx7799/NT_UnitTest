@@ -5,6 +5,7 @@ namespace Nutrition.APIs;
 public interface IFoodService
 {
     Task<List<Food>> GetFoods(); 
+    Task<Food?> GetFood(Guid id);
 }
 
 public class FoodService : IFoodService
@@ -19,6 +20,11 @@ public class FoodService : IFoodService
     public async Task<List<Food>> GetFoods()
     {
         return await _nutritionContext.Foods.Where(x => !x.IsDeleted).ToListAsync();
+    }
+
+    public async Task<Food?> GetFood(Guid id)
+    {
+        return await _nutritionContext.Foods.FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
     }
 
 }

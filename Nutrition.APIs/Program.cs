@@ -19,6 +19,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseFoodEndpoins();
+app.UseFoodEndpoints();
+app.UseNutritionEndpoints();
 
 app.Run();
