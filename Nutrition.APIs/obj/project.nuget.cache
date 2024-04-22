@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mz7aryRMZEnECaBcFzOLt+9Y8RXtvQDSflAMFUOFJGZkqe7KPfs/GTAWZBjn6Bb4oV5BfnNd0mspktPSZRAaVA==",
+  "dgSpecHash": "ATw5FQ2WZiaM+KAhjx+0Vp+MNF4Bag9h2Wsn4u1X8ZghhrEvAfb0c2Kpc2n47lJO7uxNhS9VijFUUdA1YGhZAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
+  "projectFilePath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

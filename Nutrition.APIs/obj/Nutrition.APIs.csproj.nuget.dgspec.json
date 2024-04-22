@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj": {}
+    "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj": {
+    "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
+        "projectUniqueName": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
         "projectName": "Nutrition.APIs",
-        "projectPath": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
+        "projectPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
         "packagesPath": "C:\\Users\\anh.lamquoc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\obj\\",
+        "outputPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anh.lamquoc\\AppData\\Roaming\\NuGet\\NuGet.Config"

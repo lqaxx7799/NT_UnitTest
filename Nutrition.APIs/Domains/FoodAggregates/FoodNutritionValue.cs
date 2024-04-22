@@ -7,5 +7,5 @@ public class FoodNutritionValue : BaseEntity
     public Guid? FoodId { get; set; }
 
     public Nutrition? Nutrition { get; set; }
-    public Food? Food { get; set; }
+    public FoodVariation? FoodVariation { get; set; }
 }

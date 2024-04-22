@@ -100,3 +100,4 @@ C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\CalculatorTest\
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\CalculatorTest\obj\Debug\net8.0\CalculatorTest.pdb
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\CalculatorTest\obj\Debug\net8.0\CalculatorTest.genruntimeconfig.cache
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\CalculatorTest\obj\Debug\net8.0\ref\CalculatorTest.dll
+c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\CalculatorTest\obj\Debug\net8.0\CalculatorTest.sourcelink.json

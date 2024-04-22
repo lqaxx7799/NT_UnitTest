@@ -9,3 +9,4 @@ C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\refint\Calculator.dll
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.pdb
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\ref\Calculator.dll
+c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Calculator\obj\Debug\net8.0\Calculator.sourcelink.json

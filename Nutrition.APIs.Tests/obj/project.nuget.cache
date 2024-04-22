@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "8Q63HGyFIcnY9Sw6IH1rY3Ls5l8hag3NZnS9sMqvDP06+AyjEUqoDDLs1KYMWdSad3NNNApq+Xmn8eej45EgtQ==",
+  "dgSpecHash": "j6dxsxncBDSkmr/eFOdbrNtIwd1RMzIYBGoXV5aHB4yGiRw2Q01+WmkZIG6KTJyUf4El5bz9TVAaIwI5w97ydA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs.Tests\\Nutrition.APIs.Tests.csproj",
+  "projectFilePath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs.Tests\\Nutrition.APIs.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\anh.lamquoc\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.4\\microsoft.aspnetcore.openapi.8.0.4.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

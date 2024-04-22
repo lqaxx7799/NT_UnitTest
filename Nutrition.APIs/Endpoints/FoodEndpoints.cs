@@ -9,22 +9,18 @@ public static class FoodEndpoints
     {
         var group = app.MapGroup("food").WithOpenApi();
 
-        group.MapGet("list", async ([FromServices] IFoodService foodService) =>
-        {
-            var foods = await foodService.GetFoods();
-            return Results.Ok(foods);
-        });
+        group.MapGet("list", ListFoods);
 
-        group.MapGet("get", async ([FromQuery] Guid id, [FromServices] NutritionContext nutritionContext) =>
-        {
-            var food = await nutritionContext.Foods.FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
-            return Results.Ok(food);
-        });
+        group.MapGet("get", GetFood);
 
-        group.MapPost("create", async ([FromBody] Food food, [FromServices] NutritionContext nutritionContext) =>
+        group.MapPost("create", async ([FromBody] FoodCreateRequest request, [FromServices] NutritionContext nutritionContext) =>
         {
-            food.CreatedAt = DateTimeOffset.Now;
-            food.ModifiedAt = null;
+            var food = new Food
+            {
+                Name = request.Name,
+                CreatedAt = DateTimeOffset.Now,
+                ModifiedAt = null
+            };
             await nutritionContext.Foods.AddAsync(food);
             await nutritionContext.SaveChangesAsync();
             return Results.Ok(food);
@@ -61,6 +57,23 @@ public static class FoodEndpoints
             await nutritionContext.SaveChangesAsync();
             return Results.Ok();
         });
+    }
+
+    public static async Task<IResult> ListFoods([FromServices] IFoodService foodService)
+    {
+        var foods = await foodService.GetFoods();
+        return Results.Ok(foods);
+    }
+
+    public static async Task<IResult> GetFood([FromQuery] Guid id, [FromServices] IFoodService foodService)
+    {
+        var food = await foodService.GetFood(id);
+        if (food is null) 
+        {
+            return Results.NotFound();
+        }
+
+        return Results.Ok(food);
     }
 
 }

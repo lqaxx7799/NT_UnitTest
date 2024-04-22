@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Nutrition.APIs.Tests
-build_property.ProjectDir = C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.Tests\
+build_property.ProjectDir = c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.Tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
