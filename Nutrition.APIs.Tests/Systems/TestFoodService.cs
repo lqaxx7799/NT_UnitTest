@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using MockQueryable.Moq;
 using Moq;
+using Moq.EntityFrameworkCore;
 
 namespace Nutrition.APIs.Tests;
 
@@ -10,11 +10,10 @@ public class TestFoodService
     public async Task GetFoods_WhenCalled_ReturnsListOfFoods()
     {
         // Arrange
-        var mock = FoodFixture.GetTestFoods().AsQueryable().BuildMockDbSet();
-        var mockNutritionContext = new Mock<INutritionContext>();
+        var mockNutritionContext = new Mock<NutritionContext>();
         mockNutritionContext
             .Setup(c => c.Foods)
-            .Returns(mock.Object);
+            .ReturnsDbSet(FoodFixture.GetTestFoods());
 
         var sut = new FoodService(mockNutritionContext.Object);
 

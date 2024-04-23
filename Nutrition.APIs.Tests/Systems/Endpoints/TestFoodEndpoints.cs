@@ -125,4 +125,36 @@ public class TestFoodEndpoints
         // Assert
         mockHttpContext.Response.StatusCode.Should().Be(404);
     }
+
+    [Fact]
+    public async Task CreateFood_OnSuccess_ReturnStatusCode200()
+    {
+        // Arrange
+        var food = new FoodCreateRequest();
+        var mockFoodService = new Mock<IFoodService>();
+        var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
+
+        // Act
+        var sut = await FoodEndpoints.CreateFood(food, mockFoodService.Object);
+        await sut.ExecuteAsync(mockHttpContext);
+
+        // Assert
+        mockHttpContext.Response.StatusCode.Should().Be(200);
+    }
+
+    [Fact]
+    public async Task CreateFood_OnSuccess_InvokesFoodServiceCreateFood()
+    {
+        // Arrange
+        var food = new FoodCreateRequest();
+        var mockFoodService = new Mock<IFoodService>();
+        var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
+
+        // Act
+        var sut = await FoodEndpoints.CreateFood(food, mockFoodService.Object);
+        await sut.ExecuteAsync(mockHttpContext);
+
+        // Assert
+        mockFoodService.Verify(x => x.CreateFood(food), Times.Once);
+    }
 }

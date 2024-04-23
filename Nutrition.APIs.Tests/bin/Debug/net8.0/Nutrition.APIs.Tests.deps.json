@@ -12,6 +12,7 @@
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "MockQueryable.Moq": "7.0.1",
           "Moq": "4.20.70",
+          "Moq.EntityFrameworkCore": "8.0.1.2",
           "Nutrition.APIs": "1.0.0",
           "coverlet.collector": "6.0.0",
           "xunit": "2.5.3",
@@ -984,6 +985,18 @@
           "lib/net6.0/Moq.dll": {
             "assemblyVersion": "4.20.70.0",
             "fileVersion": "4.20.70.0"
+          }
+        }
+      },
+      "Moq.EntityFrameworkCore/8.0.1.2": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.4",
+          "Moq": "4.20.70"
+        },
+        "runtime": {
+          "lib/net8.0/Moq.EntityFrameworkCore.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.2.0"
           }
         }
       },
@@ -2538,6 +2551,13 @@
       "sha512": "sha512-4rNnAwdpXJBuxqrOCzCyICXHSImOTRktCgCWXWykuF1qwoIsVvEnR7PjbMk/eLOxWvhmj5Kwt+kDV3RGUYcNwg==",
       "path": "moq/4.20.70",
       "hashPath": "moq.4.20.70.nupkg.sha512"
+    },
+    "Moq.EntityFrameworkCore/8.0.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LAgsu4wwRLlUjM8+t0FFwk4hy7of4BfeKqe52UUfXNaDKYUzYCZqwTcId1dB3FHiuailsmowei6lej1t//d8Ng==",
+      "path": "moq.entityframeworkcore/8.0.1.2",
+      "hashPath": "moq.entityframeworkcore.8.0.1.2.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",

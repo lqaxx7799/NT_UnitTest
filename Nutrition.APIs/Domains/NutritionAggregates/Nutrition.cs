@@ -1,10 +1,13 @@
-﻿namespace Nutrition.APIs;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class Nutrition
+namespace Nutrition.APIs;
+
+public class Nutrition : BaseEntity
 {
     public string Name { get; set; } = default!;
     public string Unit { get; set; } = default!;
     public string? Description { get; set; }
+    public double CaloriesPerUnit { get; set; }
 
     public Guid? ParentNutritionId { get; set; }
     public Guid? NutritionTypeId { get; set; }
@@ -14,4 +17,7 @@ public class Nutrition
 
     public List<Nutrition>? ChildrenNutritions { get; set; }
     public List<FoodNutritionValue>? FoodNutritionValues { get; set; }
+
+    [NotMapped]
+    public string? NutritionTypeValue { get; set; }
 }

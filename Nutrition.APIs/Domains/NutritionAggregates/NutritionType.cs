@@ -1,6 +1,6 @@
 ﻿namespace Nutrition.APIs;
 
-public class NutritionType
+public class NutritionType : BaseEntity
 {
     public string Name { get; set; } = default!;
 

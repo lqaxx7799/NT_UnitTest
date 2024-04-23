@@ -246,3 +246,4 @@ c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.
 c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.Tests\obj\Debug\net8.0\ref\Nutrition.APIs.Tests.dll
 c:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.Tests\obj\Debug\net8.0\Nutrition.APIs.Tests.sourcelink.json
 C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.Tests\bin\Debug\net8.0\FluentAssertions.dll
+C:\Users\anh.lamquoc\Workspace\Personal\Projects\study-unit-test\Nutrition.APIs.Tests\bin\Debug\net8.0\Moq.EntityFrameworkCore.dll

@@ -13,18 +13,7 @@ public static class FoodEndpoints
 
         group.MapGet("get", GetFood);
 
-        group.MapPost("create", async ([FromBody] FoodCreateRequest request, [FromServices] NutritionContext nutritionContext) =>
-        {
-            var food = new Food
-            {
-                Name = request.Name,
-                CreatedAt = DateTimeOffset.Now,
-                ModifiedAt = null
-            };
-            await nutritionContext.Foods.AddAsync(food);
-            await nutritionContext.SaveChangesAsync();
-            return Results.Ok(food);
-        });
+        group.MapPost("create", CreateFood);
 
         group.MapPut("update", async ([FromBody] Food food, [FromServices] NutritionContext nutritionContext) =>
         {
@@ -73,6 +62,12 @@ public static class FoodEndpoints
             return Results.NotFound();
         }
 
+        return Results.Ok(food);
+    }
+
+    public static async Task<IResult> CreateFood([FromBody] FoodCreateRequest request, [FromServices] IFoodService foodService)
+    {
+        var food = await foodService.CreateFood(request);
         return Results.Ok(food);
     }
 
