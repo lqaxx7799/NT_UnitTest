@@ -1774,6 +1774,16 @@
             "rid": "win"
           }
         }
+      },
+      "Nutrition.Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Nutrition.Library.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Nutrition.Library.dll": {}
+        }
       }
     }
   },
@@ -4820,6 +4830,11 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Nutrition.Library/1.0.0": {
+      "type": "project",
+      "path": "../Nutrition.Library/Nutrition.Library.csproj",
+      "msbuildProject": "../Nutrition.Library/Nutrition.Library.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4829,6 +4844,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 8.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.4",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.4",
+      "Nutrition.Library >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -4838,11 +4854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
+      "projectUniqueName": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
       "projectName": "Nutrition.APIs",
-      "projectPath": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
+      "projectPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\Nutrition.APIs.csproj",
       "packagesPath": "C:\\Users\\anh.lamquoc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\obj\\",
+      "outputPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anh.lamquoc\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4856,7 +4872,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj": {
+              "projectPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

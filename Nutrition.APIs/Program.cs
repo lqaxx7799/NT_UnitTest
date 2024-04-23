@@ -21,16 +21,20 @@ if (app.Environment.IsDevelopment())
 
 await MigrateDatabase();
 app.UseHttpsRedirection();
-app.UseFoodEndpoints();
-app.UseNutritionEndpoints();
 
+app.UseFoodEndpoints();
+app.UseMealEndpoints();
+app.UseNutritionEndpoints();
+app.UseReportEndpoints();
 
 app.Run();
 
 void AddBusinessServices(IServiceCollection services)
 {
     services.AddScoped<IFoodService, FoodService>();
+    services.AddScoped<IMealService, MealService>();
     services.AddScoped<INutritionService, NutritionService>();
+    services.AddScoped<IReportService, ReportService>();
 }
 
 async Task MigrateDatabase()

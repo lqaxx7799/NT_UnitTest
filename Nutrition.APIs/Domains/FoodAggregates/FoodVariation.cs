@@ -12,4 +12,5 @@ public class FoodVariation : BaseEntity
     public Food? Food { get; set; }
 
     public List<FoodNutritionValue>? FoodNutritionValues { get; set; }
+    public List<MealDetail>? MealDetails { get; set; }
 }

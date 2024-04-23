@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition.APIs", "Nutrition
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition.APIs.Tests", "Nutrition.APIs.Tests\Nutrition.APIs.Tests.csproj", "{30375AC5-859D-4C90-91C7-BEBA6959BF99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition.Library", "Nutrition.Library\Nutrition.Library.csproj", "{1E9F930F-0BCF-4EEE-B35D-2752D83A59CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{30375AC5-859D-4C90-91C7-BEBA6959BF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30375AC5-859D-4C90-91C7-BEBA6959BF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30375AC5-859D-4C90-91C7-BEBA6959BF99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9F930F-0BCF-4EEE-B35D-2752D83A59CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9F930F-0BCF-4EEE-B35D-2752D83A59CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9F930F-0BCF-4EEE-B35D-2752D83A59CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9F930F-0BCF-4EEE-B35D-2752D83A59CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

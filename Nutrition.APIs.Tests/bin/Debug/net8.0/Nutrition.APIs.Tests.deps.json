@@ -2127,10 +2127,16 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.4",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.4",
+          "Nutrition.Library": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
           "Nutrition.APIs.dll": {}
+        }
+      },
+      "Nutrition.Library/1.0.0": {
+        "runtime": {
+          "Nutrition.Library.dll": {}
         }
       }
     }
@@ -3395,6 +3401,11 @@
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
     "Nutrition.APIs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Nutrition.Library/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

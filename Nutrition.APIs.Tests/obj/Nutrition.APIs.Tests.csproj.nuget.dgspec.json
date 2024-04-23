@@ -125,7 +125,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj": {
+                "projectPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -184,6 +188,64 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj",
+        "projectName": "Nutrition.Library",
+        "projectPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\Nutrition.Library.csproj",
+        "packagesPath": "C:\\Users\\anh.lamquoc\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.Library\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anh.lamquoc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -2,9 +2,9 @@
 
 public class FoodNutritionValue : BaseEntity
 {
-    public double Value { get; set; }
+    public double Amount { get; set; }
     public Guid? NutritionId { get; set; }
-    public Guid? FoodId { get; set; }
+    public Guid? FoodVariationId { get; set; }
 
     public Nutrition? Nutrition { get; set; }
     public FoodVariation? FoodVariation { get; set; }
