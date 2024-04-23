@@ -50,13 +50,13 @@ public static class FoodEndpoints
 
     public static async Task<IResult> ListFoods([FromServices] IFoodService foodService)
     {
-        var foods = await foodService.GetFoods();
+        var foods = await foodService.GetAll();
         return Results.Ok(foods);
     }
 
     public static async Task<IResult> GetFood([FromQuery] Guid id, [FromServices] IFoodService foodService)
     {
-        var food = await foodService.GetFood(id);
+        var food = await foodService.GetOne(id);
         if (food is null) 
         {
             return Results.NotFound();
@@ -67,7 +67,7 @@ public static class FoodEndpoints
 
     public static async Task<IResult> CreateFood([FromBody] FoodCreateRequest request, [FromServices] IFoodService foodService)
     {
-        var food = await foodService.CreateFood(request);
+        var food = await foodService.Create(request);
         return Results.Ok(food);
     }
 

@@ -12,7 +12,7 @@ public class TestFoodEndpoints
         // Arrange
         var mockFoodService = new Mock<IFoodService>();
         mockFoodService
-            .Setup(x => x.GetFoods())
+            .Setup(x => x.GetAll())
             .ReturnsAsync(FoodFixture.GetTestFoods());
         var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
 
@@ -30,7 +30,7 @@ public class TestFoodEndpoints
         // Arrange
         var mockFoodService = new Mock<IFoodService>();
         mockFoodService
-            .Setup(x => x.GetFoods())
+            .Setup(x => x.GetAll())
             .ReturnsAsync(FoodFixture.GetTestFoods());
         var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
 
@@ -39,7 +39,7 @@ public class TestFoodEndpoints
         await sut.ExecuteAsync(mockHttpContext);
 
         // Assert
-        mockFoodService.Verify(x => x.GetFoods(), Times.Once);
+        mockFoodService.Verify(x => x.GetAll(), Times.Once);
     }
 
     [Fact]
@@ -48,7 +48,7 @@ public class TestFoodEndpoints
         // Arrange
         var mockFoodService = new Mock<IFoodService>();
         mockFoodService
-            .Setup(x => x.GetFoods())
+            .Setup(x => x.GetAll())
             .ReturnsAsync(FoodFixture.GetTestFoods());
         var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
 
@@ -72,7 +72,7 @@ public class TestFoodEndpoints
         var foodId = Guid.Parse(id);
         var mockFoodService = new Mock<IFoodService>();
         mockFoodService
-            .Setup(x => x.GetFood(foodId))
+            .Setup(x => x.GetOne(foodId))
             .ReturnsAsync(new Food());
         var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
 
@@ -93,7 +93,7 @@ public class TestFoodEndpoints
         var foodId = Guid.Parse(id);
         var mockFoodService = new Mock<IFoodService>();
         mockFoodService
-            .Setup(x => x.GetFood(foodId))
+            .Setup(x => x.GetOne(foodId))
             .ReturnsAsync(new Food());
         var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
 
@@ -102,7 +102,7 @@ public class TestFoodEndpoints
         await sut.ExecuteAsync(mockHttpContext);
 
         // Assert
-        mockFoodService.Verify(x => x.GetFood(foodId), Times.Once);
+        mockFoodService.Verify(x => x.GetOne(foodId), Times.Once);
     }
 
     [Theory]
@@ -114,7 +114,7 @@ public class TestFoodEndpoints
         var foodId = Guid.Parse(id);
         var mockFoodService = new Mock<IFoodService>();
         mockFoodService
-            .Setup(x => x.GetFood(foodId))
+            .Setup(x => x.GetOne(foodId))
             .ReturnsAsync((Food?)null);
         var mockHttpContext = HttpContextHelper.CreateMockHttpContext();
 
@@ -155,6 +155,6 @@ public class TestFoodEndpoints
         await sut.ExecuteAsync(mockHttpContext);
 
         // Assert
-        mockFoodService.Verify(x => x.CreateFood(food), Times.Once);
+        mockFoodService.Verify(x => x.Create(food), Times.Once);
     }
 }

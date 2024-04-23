@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T3NCQ0xDUpy2JDmAr+p39mbrvhFpAQNkfyeCz0UzboRX2WvkDn4LmyBAIKVh1X0TjCIEcStY9qPS5mtJCe+b7A==",
+  "dgSpecHash": "CMo31I8Sh7gzORs3qK/K7VUr3/AefTV+g3mtAyHcg8HG1l6zJEs4lY7lxhScfbibiyx9qJ9zdbUSTcTMcOBItg==",
   "success": true,
   "projectFilePath": "c:\\Users\\anh.lamquoc\\Workspace\\Personal\\Projects\\study-unit-test\\Nutrition.APIs.Tests\\Nutrition.APIs.Tests.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\anh.lamquoc\\.nuget\\packages\\coverlet.msbuild\\6.0.2\\coverlet.msbuild.6.0.2.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\anh.lamquoc\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.4\\microsoft.aspnetcore.openapi.8.0.4.nupkg.sha512",

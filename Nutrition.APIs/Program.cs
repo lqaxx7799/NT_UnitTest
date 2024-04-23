@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlServer<NutritionContext>(builder.Configuration.GetConnectionString("DefaultConnection"));
-builder.Services.AddScoped<IFoodService, FoodService>();
+AddBusinessServices(builder.Services);
 
 var app = builder.Build();
 
@@ -26,6 +26,12 @@ app.UseNutritionEndpoints();
 
 
 app.Run();
+
+void AddBusinessServices(IServiceCollection services)
+{
+    services.AddScoped<IFoodService, FoodService>();
+    services.AddScoped<INutritionService, NutritionService>();
+}
 
 async Task MigrateDatabase()
 {

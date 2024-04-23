@@ -4,9 +4,9 @@ namespace Nutrition.APIs;
 
 public interface IFoodService
 {
-    Task<List<Food>> GetFoods(); 
-    Task<Food?> GetFood(Guid id);
-    Task<Food> CreateFood(FoodCreateRequest foodCreateRequest);
+    Task<List<Food>> GetAll(); 
+    Task<Food?> GetOne(Guid id);
+    Task<Food> Create(FoodCreateRequest foodCreateRequest);
 }
 
 public class FoodService : IFoodService
@@ -18,17 +18,17 @@ public class FoodService : IFoodService
         _nutritionContext = nutritionContext;
     }
 
-    public async Task<List<Food>> GetFoods()
+    public async Task<List<Food>> GetAll()
     {
         return await _nutritionContext.Foods.Where(x => !x.IsDeleted).ToListAsync();
     }
 
-    public async Task<Food?> GetFood(Guid id)
+    public async Task<Food?> GetOne(Guid id)
     {
         return await _nutritionContext.Foods.FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
     }
 
-    public async Task<Food> CreateFood(FoodCreateRequest foodCreateRequest)
+    public async Task<Food> Create(FoodCreateRequest foodCreateRequest)
     {
         var food = new Food
         {
