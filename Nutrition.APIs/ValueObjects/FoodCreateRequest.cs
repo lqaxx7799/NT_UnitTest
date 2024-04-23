@@ -19,5 +19,5 @@ public class FoodVariationCreateRequest
 public class FoodNutritionCreateRequest
 {
     public Guid NutritionId { get; set; }
-    public double Value { get; set; }
+    public double Amount { get; set; }
 }

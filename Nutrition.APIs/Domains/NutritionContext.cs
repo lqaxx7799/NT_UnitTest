@@ -4,6 +4,11 @@ namespace Nutrition.APIs;
 
 public class NutritionContext : DbContext
 {
+    public NutritionContext(DbContextOptions<NutritionContext> options) : base(options)
+    {
+
+    }
+
     public virtual DbSet<Category> Categories { get; set; } = default!;
     public virtual DbSet<Food> Foods { get; set; } = default!;
     public virtual DbSet<FoodCategory> FoodCategories { get; set; } = default!;

@@ -55,7 +55,7 @@ public class FoodService : IFoodService
                 FoodNutritionValues = foodVariationRequest.Nutritions.Select(x => new FoodNutritionValue
                 {
                     NutritionId = x.NutritionId,
-                    Value = x.Value,
+                    Amount = x.Amount,
                     CreatedAt = DateTimeOffset.Now,
                 }).ToList()
             };

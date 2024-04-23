@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Nutrition.APIs.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b582624ba94759331daf4c8af58fe2991fc3eeb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+604b38f0a48fe06607a08f8f709d4c471461f79a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nutrition.APIs.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nutrition.APIs.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
