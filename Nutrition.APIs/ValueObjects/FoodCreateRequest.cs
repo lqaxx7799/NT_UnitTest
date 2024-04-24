@@ -20,4 +20,5 @@ public class FoodNutritionCreateRequest
 {
     public Guid NutritionId { get; set; }
     public double Amount { get; set; }
+    public string Unit { get; set; } = default!;
 }

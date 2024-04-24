@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using Moq.EntityFrameworkCore;
 
@@ -10,7 +11,8 @@ public class TestFoodService
     public async Task GetAll_WhenCalled_ReturnsListOfFoods()
     {
         // Arrange
-        var mockNutritionContext = new Mock<NutritionContext>();
+        var mockDbContextOptions = new DbContextOptions<NutritionContext>();
+        var mockNutritionContext = new Mock<NutritionContext>(mockDbContextOptions);
         mockNutritionContext
             .Setup(c => c.Foods)
             .ReturnsDbSet(FoodFixture.GetTestFoods());
@@ -31,7 +33,8 @@ public class TestFoodService
     {
         // Arrange
         var foodId = Guid.Parse(id);
-        var mockNutritionContext = new Mock<NutritionContext>();
+        var mockDbContextOptions = new DbContextOptions<NutritionContext>();
+        var mockNutritionContext = new Mock<NutritionContext>(mockDbContextOptions);
         mockNutritionContext
             .Setup(c => c.Foods)
             .ReturnsDbSet(FoodFixture.GetTestFoods());
@@ -53,7 +56,8 @@ public class TestFoodService
     {
         // Arrange
         var foodId = Guid.Parse(id);
-        var mockNutritionContext = new Mock<NutritionContext>();
+        var mockDbContextOptions = new DbContextOptions<NutritionContext>();
+        var mockNutritionContext = new Mock<NutritionContext>(mockDbContextOptions);
         mockNutritionContext
             .Setup(c => c.Foods)
             .ReturnsDbSet(FoodFixture.GetTestFoods());
@@ -77,7 +81,8 @@ public class TestFoodService
             CategoryIds = [],
             Name = "Test"
         };
-        var mockNutritionContext = new Mock<NutritionContext>();
+        var mockDbContextOptions = new DbContextOptions<NutritionContext>();
+        var mockNutritionContext = new Mock<NutritionContext>(mockDbContextOptions);
         mockNutritionContext
             .Setup(c => c.Foods)
             .ReturnsDbSet(FoodFixture.GetTestFoods());

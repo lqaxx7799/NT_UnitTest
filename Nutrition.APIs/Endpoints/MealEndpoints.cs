@@ -8,7 +8,7 @@ public static class MealEndpoints
     {
         var group = web.MapGroup("meal").WithOpenApi();
         group.MapGet("list", ListMeals);
-        group.MapGet("create", CreateMeal);
+        group.MapPost("create", CreateMeal);
     }
 
     public static async Task<IResult> ListMeals([AsParameters] MealListRequest request, [FromServices] IMealService mealService)

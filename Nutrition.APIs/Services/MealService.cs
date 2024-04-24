@@ -38,9 +38,35 @@ public class MealService : IMealService
         return meals;
     }
 
-    public Task<Meal> Create(MealCreateRequest request)
+    public async Task<Meal> Create(MealCreateRequest request)
     {
-        return null;
+        var meal = new Meal
+        {
+            Title = request.Title,
+            Description = request.Description,
+            CreatedAt = DateTimeOffset.Now,
+            From = request.From,
+            To = request.To,
+            MealTypeId = request.MealTypeId,
+            MealDetails = []
+        };
+        foreach (var mealDetailRequest in request.MealDetails)
+        {
+            var mealDetail = new MealDetail
+            {
+                FoodVariationId = mealDetailRequest.FoodVariationId,
+                InputAmount = mealDetailRequest.Amount,
+                InputUnit = mealDetailRequest.Unit,
+            };
+            var foodVariation = await _nutritionContext.FoodVariations
+                .FirstOrDefaultAsync(x => x.Id == mealDetailRequest.FoodVariationId) ?? throw new ArgumentException("");
+            mealDetail.DefaultUnitAmount = ConversionUtilities.Convert(mealDetailRequest.Amount, mealDetailRequest.Unit, foodVariation.NutritionServingUnit);
+            meal.MealDetails.Add(mealDetail);
+        }
+        var entry = await _nutritionContext.Meals.AddAsync(meal);
+        await _nutritionContext.SaveChangesAsync();
+
+        return entry.Entity;
     }
 
 }

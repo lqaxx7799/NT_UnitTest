@@ -112,7 +112,7 @@ public class NutritionSeedData
                 {
                     Name = "Sugars",
                     Unit = "g",
-                    CaloriesPerUnit = 0,
+                    CaloriesPerUnit = 4,
                     Description = "",
                     CreatedAt = DateTimeOffset.Now,
                 },

@@ -1,4 +1,6 @@
-﻿namespace Nutrition.APIs;
+﻿using System.Text.Json.Serialization;
+
+namespace Nutrition.APIs;
 
 public class Meal : BaseEntity
 {
@@ -12,5 +14,6 @@ public class Meal : BaseEntity
 
     public MealType? MealType { get; set; }
 
+    [JsonIgnore]
     public List<MealDetail>? MealDetails { get; set; }
 }

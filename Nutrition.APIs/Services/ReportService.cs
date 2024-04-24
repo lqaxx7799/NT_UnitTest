@@ -22,8 +22,7 @@ public class ReportService : IReportService
 
         var meals = await _nutritionContext.Meals
             .Include(x => x.MealDetails)
-            // !.ThenInclude(x => x.FoodVariation)
-            .Where(x => x.CreatedAt >= request.FromTime && x.CreatedAt <= request.ToTime)
+            .Where(x => x.From >= request.FromTime && x.To <= request.ToTime)
             .ToListAsync();
 
         var reportNutritionProfileResponse = new ReportNutritionProfileResponse
@@ -50,6 +49,7 @@ public class ReportService : IReportService
                 {
                     continue;
                 }
+                reportNutritionProfileResponse.TotalCalories += foodVariation.CaloriesPerServing * mealDetail.DefaultUnitAmount / foodVariation.NutritionServingAmount;
                 foreach (var foodNutritionValue in foodVariation.FoodNutritionValues)
                 {
                     var nutrition = nutritions.FirstOrDefault(x => x.Id == foodNutritionValue.NutritionId);
@@ -70,11 +70,7 @@ public class ReportService : IReportService
                         };
                         reportNutritionProfileResponse.NutritionValues.Add(reportNutritionValue);
                     }
-                    reportNutritionValue.Amount += foodNutritionValue.Amount;
-                    if (nutrition.CaloriesPerUnit != 0)
-                    {
-                        reportNutritionProfileResponse.TotalCalories += nutrition.CaloriesPerUnit * foodNutritionValue.Amount;
-                    }
+                    reportNutritionValue.Amount += foodNutritionValue.Amount * mealDetail.DefaultUnitAmount / foodVariation.NutritionServingAmount;
                 }
             }
         }

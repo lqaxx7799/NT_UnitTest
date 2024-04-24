@@ -42,6 +42,7 @@ public class FoodService : IFoodService
             }).ToList(),
             FoodVariations = [],
         };
+        var nutritions = await _nutritionContext.Nutritions.Where(x => !x.IsDeleted).ToListAsync();
 
         foreach (var foodVariationRequest in foodCreateRequest.FoodVariations)
         {
@@ -55,7 +56,7 @@ public class FoodService : IFoodService
                 FoodNutritionValues = foodVariationRequest.Nutritions.Select(x => new FoodNutritionValue
                 {
                     NutritionId = x.NutritionId,
-                    Amount = x.Amount,
+                    Amount = ConversionUtilities.Convert(x.Amount, x.Unit, nutritions.FirstOrDefault(nutrition => nutrition.Id == x.NutritionId)?.Unit!),
                     CreatedAt = DateTimeOffset.Now,
                 }).ToList()
             };

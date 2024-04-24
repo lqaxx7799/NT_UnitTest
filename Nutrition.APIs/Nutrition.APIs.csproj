@@ -16,5 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nutrition.Library\Nutrition.Library.csproj" />
+    <ProjectReference Include="..\Nutrition.Business\Nutrition.Business.csproj" />
   </ItemGroup>
 </Project>

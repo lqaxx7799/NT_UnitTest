@@ -45,4 +45,5 @@ async Task MigrateDatabase()
     await context.Database.MigrateAsync();
     await NutritionSeedData.SeedData(context);
     await CategorySeedData.SeedData(context);
+    await MealSeedData.SeedData(context);
 }

@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using Moq.EntityFrameworkCore;
 
@@ -10,7 +11,8 @@ public class TestNutritionService
     public async Task GetAll_WhenCalled_ReturnsListOfFoods()
     {
         // Arrange
-        var mockNutritionContext = new Mock<NutritionContext>();
+        var mockDbContextOptions = new DbContextOptions<NutritionContext>();
+        var mockNutritionContext = new Mock<NutritionContext>(mockDbContextOptions);
         mockNutritionContext
             .Setup(c => c.Nutritions)
             .ReturnsDbSet(NutritionFixture.GetTestNutritions());
