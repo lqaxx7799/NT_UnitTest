@@ -48,11 +48,12 @@ public class ConversionUtilities
 
     public static SystemUnit? GetDefaultUnit(string unitType)
     {
+        var normalizedUnitType = unitType.ToLower();
         var systemUnits = Enum.GetValues<SystemUnit>();
         foreach (var systemUnit in systemUnits)
         {
             var currentUnitType = systemUnit.GetAttribute<UnitTypeAttribute>();
-            if (currentUnitType?.Type != unitType)
+            if (currentUnitType?.Type.ToLower() != normalizedUnitType)
             {
                 continue;
             }
