@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition.Library", "Nutrit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition.Business", "Nutrition.Business\Nutrition.Business.csproj", "{236D73B8-45C7-4A30-8803-1686C2D80079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition.Web", "Nutrition.Web\Nutrition.Web.csproj", "{97BE2ADE-2AFA-4875-A1C4-63A665C576D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{236D73B8-45C7-4A30-8803-1686C2D80079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{236D73B8-45C7-4A30-8803-1686C2D80079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{236D73B8-45C7-4A30-8803-1686C2D80079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BE2ADE-2AFA-4875-A1C4-63A665C576D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BE2ADE-2AFA-4875-A1C4-63A665C576D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BE2ADE-2AFA-4875-A1C4-63A665C576D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BE2ADE-2AFA-4875-A1C4-63A665C576D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

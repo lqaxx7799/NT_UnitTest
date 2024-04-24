@@ -14,5 +14,5 @@ public class ReportNutritionValue
     public string NutritionName { get; set; } = default!;
     public string Unit { get; set; } = default!;
     public double Amount { get; set; } = default!;
-    public List<ReportNutritionValue> Nutritions { get; set; } = default!;
+    public List<ReportNutritionValue>? Nutritions { get; set; }
 }
