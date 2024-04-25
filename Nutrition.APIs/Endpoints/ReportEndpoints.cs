@@ -4,7 +4,7 @@ namespace Nutrition.APIs;
 
 public static class ReportEndpoints
 {
-    public static void UseReportEndpoints(this WebApplication web)
+    public static void UseReportEndpoints(this IEndpointRouteBuilder web)
     {
         var group = web.MapGroup("report").WithOpenApi();
         group.MapGet("nutritionProfile", GetNutritionProfileReport);

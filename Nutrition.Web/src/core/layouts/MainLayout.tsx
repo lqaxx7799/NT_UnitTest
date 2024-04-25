@@ -13,6 +13,7 @@ const useStyles = makeStyles({
   },
   content: {
     ...shorthands.padding('24px'),
+    width: 'calc(100vw - 300px)',
   },
 });
 

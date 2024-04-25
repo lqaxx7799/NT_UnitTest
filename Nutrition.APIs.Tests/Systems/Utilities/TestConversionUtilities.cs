@@ -51,6 +51,21 @@ public class TestConversionUtilities
     }
 
     [Theory]
+    [InlineData(1000, "kg", "l")]
+    [InlineData(40, "oz", "ml")]
+    [InlineData(53, "fl oz", "g")]
+    public void Convert_WhenUnitsMismatch_ThrowException(double input, string fromUnit, string toUnit)
+    {
+        // Arrange
+
+        // Act
+        var sut = () => ConversionUtilities.Convert(input, fromUnit, toUnit);
+
+        // Assert
+        sut.Should().ThrowExactly<ArgumentException>().And.Message.Should().Be("Mismatch unit type");
+    }
+
+    [Theory]
     [InlineData("g", SystemUnit.Gram)]
     [InlineData("gram", SystemUnit.Gram)]
     [InlineData("kg", SystemUnit.Kilogram)]

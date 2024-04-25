@@ -42,7 +42,7 @@ const Sidebar = () => {
       <div className={classes.sidebarLogo}>Nutrition System</div>
       {
         sidebarItems.map((item) => (
-          <NavLink to={item.route}>
+          <NavLink to={item.route} key={item.route}>
             {({ isActive }) => (
               <CompoundButton
                 className={classes.sidebarItem}

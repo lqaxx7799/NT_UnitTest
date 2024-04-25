@@ -22,14 +22,14 @@ public class MealService : IMealService
     public async Task<List<Meal>> GetAll(MealListRequest request)
     {
         Expression<Func<Meal, bool>> whereExpression = x => !x.IsDeleted;
-        if (string.IsNullOrEmpty(request.Keyword))
+        if (!string.IsNullOrEmpty(request.Keyword))
         {
-            whereExpression = whereExpression.And(x => x.Title == request.Keyword);
+            whereExpression = whereExpression.And(x => x.Title.Contains(request.Keyword, StringComparison.CurrentCultureIgnoreCase));
         }
 
         if (request.FromTime is not null && request.ToTime is not null)
         {
-            whereExpression = whereExpression.And(x => x.CreatedAt > request.FromTime && x.CreatedAt < request.ToTime);
+            whereExpression = whereExpression.And(x => x.From > request.FromTime && x.To < request.ToTime);
         }
 
         var meals = await _nutritionContext.Meals
@@ -59,7 +59,7 @@ public class MealService : IMealService
                 InputUnit = mealDetailRequest.Unit,
             };
             var foodVariation = await _nutritionContext.FoodVariations
-                .FirstOrDefaultAsync(x => x.Id == mealDetailRequest.FoodVariationId) ?? throw new ArgumentException("");
+                .FirstOrDefaultAsync(x => x.Id == mealDetailRequest.FoodVariationId) ?? throw new ArgumentException("Food variation not found");
             mealDetail.DefaultUnitAmount = ConversionUtilities.Convert(mealDetailRequest.Amount, mealDetailRequest.Unit, foodVariation.NutritionServingUnit);
             meal.MealDetails.Add(mealDetail);
         }

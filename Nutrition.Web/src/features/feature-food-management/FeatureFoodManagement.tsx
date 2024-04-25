@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { IFood } from "../../core/models/food.model";
-import { Button } from "@fluentui/react-components";
+import { Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "@fluentui/react-components";
+import FoodService from "../../core/services/food.service";
 
 const FeatureFoodManagement = () => {
   const {
@@ -10,7 +9,7 @@ const FeatureFoodManagement = () => {
     isPending: loading,
   } = useQuery({
     queryKey: ['foods'],
-    queryFn: () => axios.get<IFood[]>('http://localhost:5259/food/list')
+    queryFn: () => FoodService.listFoods()
   });
 
   if (loading) {
@@ -28,28 +27,26 @@ const FeatureFoodManagement = () => {
   return (
     <div>
       <div>Foods</div>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              data.data.map((food) => (
-                <tr key={food.id}>
-                  <td>{food.name}</td>
-                  <td>
-                    <Button>Edit</Button>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+      <Table arial-label="Food table">
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Action</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.map((item) => (
+            <TableRow key={item.id}>
+              <TableCell>
+                {item.name}
+              </TableCell>
+              <TableCell>
+                <Button>Edit</Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };

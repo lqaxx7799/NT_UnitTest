@@ -7,7 +7,7 @@ namespace Nutrition.APIs.Tests;
 public class TestFoodEndpoints
 {
     [Fact]
-    public async Task ListFoods_OnSucess_ReturnsStatusCode200()
+    public async Task ListFoods_OnSuccess_ReturnsStatusCode200()
     {
         // Arrange
         var mockFoodService = new Mock<IFoodService>();
@@ -25,7 +25,7 @@ public class TestFoodEndpoints
     }
 
     [Fact]
-    public async Task ListFoods_OnSucess_InvokesFoodServiceExactlyOnce()
+    public async Task ListFoods_OnSuccess_InvokesFoodServiceExactlyOnce()
     {
         // Arrange
         var mockFoodService = new Mock<IFoodService>();
@@ -43,7 +43,7 @@ public class TestFoodEndpoints
     }
 
     [Fact]
-    public async Task ListFoods_OnSucess_ReturnsListOfFoods()
+    public async Task ListFoods_OnSuccess_ReturnsListOfFoods()
     {
         // Arrange
         var mockFoodService = new Mock<IFoodService>();
@@ -66,7 +66,7 @@ public class TestFoodEndpoints
     [Theory]
     [InlineData("62FA647C-AD54-4BCC-A860-E5A2664B019D")]
     [InlineData("7B1F3580-63EB-4686-8588-8BAD339D48A5")]
-    public async Task GetFood_OnSucess_ReturnsStatusCode200(string id)
+    public async Task GetFood_OnSuccess_ReturnsStatusCode200(string id)
     {
         // Arrange
         var foodId = Guid.Parse(id);
@@ -87,7 +87,7 @@ public class TestFoodEndpoints
     [Theory]
     [InlineData("62FA647C-AD54-4BCC-A860-E5A2664B019D")]
     [InlineData("7B1F3580-63EB-4686-8588-8BAD339D48A5")]
-    public async Task GetFood_OnSucess_InvokesFoodService(string id)
+    public async Task GetFood_OnSuccess_InvokesFoodService(string id)
     {
         // Arrange
         var foodId = Guid.Parse(id);

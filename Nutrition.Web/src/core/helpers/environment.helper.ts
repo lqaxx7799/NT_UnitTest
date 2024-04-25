@@ -3,7 +3,7 @@ export type Environment = {
 };
 
 const environmentKeyMap: { [key in keyof Environment]: string } = {
-  baseUrlApi: 'VITE_BASE_URL_API',
+  baseUrlApi: 'VITE_BASE_API_URL',
 };
 
 const getEnvironmentVariable = (key: keyof Environment): string => {

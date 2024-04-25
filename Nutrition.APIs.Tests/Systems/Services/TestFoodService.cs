@@ -86,6 +86,9 @@ public class TestFoodService
         mockNutritionContext
             .Setup(c => c.Foods)
             .ReturnsDbSet(FoodFixture.GetTestFoods());
+        mockNutritionContext
+            .Setup(c => c.Nutritions)
+            .ReturnsDbSet(NutritionFixture.GetTestNutritions());
 
         mockNutritionContext
             .Setup(c => c.Categories)
