@@ -7,12 +7,17 @@ import FeatureFoodManagement from './features/feature-food-management/FeatureFoo
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import FeatureMealManagement from './features/feature-meal-management/FeatureMealManagement';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import FeatureFoodCreate from './features/feature-food-management/FeatureFoodCreate';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
     children: [
+      {
+        path: 'food/create',
+        element: <FeatureFoodCreate />
+      },
       {
         path: 'food',
         element: <FeatureFoodManagement />

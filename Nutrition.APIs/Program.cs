@@ -34,6 +34,7 @@ app.UseCors("NutritionPolicy");
 await MigrateDatabase();
 app.UseHttpsRedirection();
 
+app.UseCategoryEndpoints();
 app.UseFoodEndpoints();
 app.UseMealEndpoints();
 app.UseNutritionEndpoints();
@@ -43,6 +44,7 @@ app.Run();
 
 void AddBusinessServices(IServiceCollection services)
 {
+    services.AddScoped<ICategoryService, CategoryService>();
     services.AddScoped<IFoodService, FoodService>();
     services.AddScoped<IMealService, MealService>();
     services.AddScoped<INutritionService, NutritionService>();

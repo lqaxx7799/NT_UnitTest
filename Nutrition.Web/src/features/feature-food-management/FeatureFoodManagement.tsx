@@ -1,6 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "@fluentui/react-components";
+import { Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Title1, makeStyles } from "@fluentui/react-components";
 import FoodService from "../../core/services/food.service";
+import { Link, NavLink } from "react-router-dom";
+import { useGlobalClasses } from "../../core/styles/global.style";
+
+const useStyles = makeStyles({
+  
+});
 
 const FeatureFoodManagement = () => {
   const {
@@ -11,6 +17,9 @@ const FeatureFoodManagement = () => {
     queryKey: ['foods'],
     queryFn: () => FoodService.listFoods()
   });
+
+  const classes = useStyles();
+  const globalClasses = useGlobalClasses();
 
   if (loading) {
     return (
@@ -26,7 +35,16 @@ const FeatureFoodManagement = () => {
 
   return (
     <div>
-      <div>Foods</div>
+      <div className={globalClasses.pageHeader}>
+        <Title1>Food</Title1>
+      </div>
+      <div className={globalClasses.pageActionGroup}>
+        <Link to="/food/create">
+          <Button>
+            Create new
+          </Button>
+        </Link>
+      </div>
       <Table arial-label="Food table">
         <TableHeader>
           <TableRow>
@@ -38,7 +56,9 @@ const FeatureFoodManagement = () => {
           {data.map((item) => (
             <TableRow key={item.id}>
               <TableCell>
-                {item.name}
+                <NavLink to={`/food/${item.id}`}>
+                  {item.name}
+                </NavLink>
               </TableCell>
               <TableCell>
                 <Button>Edit</Button>
