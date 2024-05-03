@@ -12,8 +12,8 @@ using Nutrition.APIs;
 namespace Nutrition.APIs.Migrations
 {
     [DbContext(typeof(NutritionContext))]
-    [Migration("20240424042310_AddMealTable")]
-    partial class AddMealTable
+    [Migration("20240503092934_InitialDatabase")]
+    partial class InitialDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

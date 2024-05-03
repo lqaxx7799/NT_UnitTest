@@ -66,7 +66,7 @@ const FeatureFoodCreate = () => {
   // fetch data
   const categoriesQuery = useQuery({
     queryKey: ['categories'],
-    queryFn: () => CategoryService.listCategories()
+    queryFn: () => CategoryService.listCategories(),
   });
 
   // event handlers
@@ -92,7 +92,7 @@ const FeatureFoodCreate = () => {
       caloriesPerServing: 0,
       nutritionServingAmount: 0,
       nutritionServingUnit: '',
-      nutritions: []
+      nutritions: [],
     }]);
   };
 
@@ -154,7 +154,7 @@ const FeatureFoodCreate = () => {
                             <Option key={category.id} value={category.id}>{category.name}</Option>
                           ))}
                         </>
-                      )}                    
+                      )}
                     </Combobox>
                     {field.value.length ? (
                       <ul
@@ -264,7 +264,7 @@ const FeatureFoodCreate = () => {
           <div>
             <Button onClick={addFoodVariation}>Add variation</Button>
           </div>
-          
+
           <Button type="submit">Submit</Button>
         </form>
       </div>

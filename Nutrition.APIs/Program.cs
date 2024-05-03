@@ -1,8 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Nutrition.APIs;
+using Nutrition.Library;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configurationBuilder = new ConfigurationBuilder()
+    .SetBasePath(builder.Environment.ContentRootPath)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
+Console.WriteLine("ContentRootPath: " + builder.Environment.ContentRootPath);
+Console.WriteLine("EnvironmentName: " + builder.Environment.EnvironmentName);
+
+var appSettings = configurationBuilder.Build().Get<AppSettings>()!;
+builder.Services.AddSingleton(appSettings);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,7 +28,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
-builder.Services.AddSqlServer<NutritionContext>(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddSqlServer<NutritionContext>(appSettings.ConnectionStrings["DefaultConnection"]);
 AddBusinessServices(builder.Services);
 
 var app = builder.Build();
@@ -55,7 +65,7 @@ async Task MigrateDatabase()
 {
     await using var scope = app.Services.CreateAsyncScope();
     var context = scope.ServiceProvider.GetRequiredService<NutritionContext>();
-    await context.Database.EnsureCreatedAsync();
+    // await context.Database.EnsureCreatedAsync();
     await context.Database.MigrateAsync();
     await NutritionSeedData.SeedData(context);
     await CategorySeedData.SeedData(context);
