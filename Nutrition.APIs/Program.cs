@@ -8,8 +8,6 @@ var configurationBuilder = new ConfigurationBuilder()
     .SetBasePath(builder.Environment.ContentRootPath)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
-Console.WriteLine("ContentRootPath: " + builder.Environment.ContentRootPath);
-Console.WriteLine("EnvironmentName: " + builder.Environment.EnvironmentName);
 
 var appSettings = configurationBuilder.Build().Get<AppSettings>()!;
 builder.Services.AddSingleton(appSettings);
