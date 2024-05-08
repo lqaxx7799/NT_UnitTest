@@ -27,9 +27,10 @@ jobs:
 
       - name: Test with dotnet CLI
         run: dotnet test Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
+        id: step_dotnet_test
 
       - name: Test success
-        if: success()
+        if: ${{ success() && steps.step_dotnet_test.conclusion == 'success' }}
         steps:
           - name: dotnet publish
           run: dotnet publish Nutrition.APIs/Nutrition.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
