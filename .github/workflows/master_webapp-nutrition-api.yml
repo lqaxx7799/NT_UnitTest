@@ -10,9 +10,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.x'
+          include-prerelease: true
+
+      - name: Test with dotnet CLI
+        run: dotnet test Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    if: ${{ needs.test.result == 'success' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -29,23 +45,19 @@ jobs:
         run: dotnet test Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
         id: step_dotnet_test
 
-      - name: Test success
-        if: ${{ success() && steps.step_dotnet_test.conclusion == 'success' }}
-        steps:
-          - name: dotnet publish
-          run: dotnet publish Nutrition.APIs/Nutrition.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: dotnet publish
+        run: dotnet publish Nutrition.APIs/Nutrition.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-          - name: Upload artifact for deployment job
-            uses: actions/upload-artifact@v3
-            with:
-              name: .net-app
-              path: ${{env.DOTNET_ROOT}}/myapp
-              retention-days: 10
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+          retention-days: 10
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ needs.build.result == 'success' }}
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
