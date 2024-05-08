@@ -157,4 +157,15 @@ public class TestFoodEndpoints
         // Assert
         mockFoodService.Verify(x => x.Create(food), Times.Once);
     }
+
+    [Fact]
+    public void CreateFood_FailUnitTest()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.Equal(1, 2);
+    }
 }
