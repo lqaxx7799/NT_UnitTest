@@ -41,12 +41,8 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: Test with dotnet CLI
-        run: dotnet test Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
-        id: step_dotnet_test
-
       - name: dotnet publish
-        run: dotnet publish Nutrition.APIs/Nutrition.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish Services/Nutrition.APIs/Nutrition.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3

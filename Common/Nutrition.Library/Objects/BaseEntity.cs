@@ -1,7 +1,12 @@
-﻿namespace Nutrition.APIs;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+
+namespace Nutrition.Library;
 
 public class BaseEntity
 {
+    [Key]
+    [JsonProperty(PropertyName = "id")]
     public Guid Id { get; set; } = Guid.NewGuid();
     public DateTimeOffset? CreatedAt { get; set; }
     public DateTimeOffset? ModifiedAt { get; set; }
@@ -11,3 +16,4 @@ public class BaseEntity
     public Guid? DeletedBy { get; set; }
     public bool IsDeleted { get; set; }
 }
+

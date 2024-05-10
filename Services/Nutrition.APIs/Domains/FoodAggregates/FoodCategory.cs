@@ -1,4 +1,6 @@
-﻿namespace Nutrition.APIs;
+﻿using Nutrition.Library;
+
+namespace Nutrition.APIs;
 
 public class FoodCategory : BaseEntity
 {

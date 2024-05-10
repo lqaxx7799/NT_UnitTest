@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nutrition.Library\Nutrition.Library.csproj" />
-    <ProjectReference Include="..\Nutrition.Business\Nutrition.Business.csproj" />
+    <ProjectReference Include="..\..\Common\Nutrition.Library\Nutrition.Library.csproj" />
+    <ProjectReference Include="..\..\Common\Nutrition.Business\Nutrition.Business.csproj" />
   </ItemGroup>
 </Project>
