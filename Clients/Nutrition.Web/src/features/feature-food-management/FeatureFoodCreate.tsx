@@ -40,10 +40,10 @@ const FeatureFoodCreate = () => {
   // form
   const {
     control,
-    register,
+    // register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    // watch,
+    // formState: { errors },
     setValue: setFormValue,
     getValues: getFormValues,
   } = useForm<IFoodCreateRequest>({

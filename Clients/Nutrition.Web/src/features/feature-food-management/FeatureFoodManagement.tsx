@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Title1, makeStyles } from "@fluentui/react-components";
+import { Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Title1 } from "@fluentui/react-components";
 import FoodService from "../../core/services/food.service";
 import { Link, NavLink } from "react-router-dom";
 import { useGlobalClasses } from "../../core/styles/global.style";
 
-const useStyles = makeStyles({
+// const useStyles = makeStyles({
   
-});
+// });
 
 const FeatureFoodManagement = () => {
   const {
@@ -18,7 +18,7 @@ const FeatureFoodManagement = () => {
     queryFn: () => FoodService.listFoods()
   });
 
-  const classes = useStyles();
+  // const classes = useStyles();
   const globalClasses = useGlobalClasses();
 
   if (loading) {
