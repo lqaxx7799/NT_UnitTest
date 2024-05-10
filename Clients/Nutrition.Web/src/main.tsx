@@ -3,11 +3,8 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from './core/layouts/MainLayout';
-import FeatureFoodManagement from './features/feature-food-management/FeatureFoodManagement';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
-import FeatureMealManagement from './features/feature-meal-management/FeatureMealManagement';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import FeatureFoodCreate from './features/feature-food-management/FeatureFoodCreate';
 
 const router = createBrowserRouter([
   {
@@ -16,15 +13,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'food/create',
-        element: <FeatureFoodCreate />
+        async lazy() {
+          let FeatureFoodCreate = await import('./features/feature-food-management/FeatureFoodCreate');
+          return { Component: FeatureFoodCreate.default };
+        },
       },
       {
         path: 'food',
-        element: <FeatureFoodManagement />
+        async lazy() {
+          let FeatureFoodManagement = await import('./features/feature-food-management/FeatureFoodManagement');
+          return { Component: FeatureFoodManagement.default };
+        },
       },
       {
         path: 'meal',
-        element: <FeatureMealManagement />
+        async lazy() {
+          let FeatureMealManagement = await import('./features/feature-meal-management/FeatureMealManagement');
+          return { Component: FeatureMealManagement.default };
+        },
       }
     ]
   },
