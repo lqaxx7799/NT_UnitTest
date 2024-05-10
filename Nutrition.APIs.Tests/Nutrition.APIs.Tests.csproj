@@ -21,6 +21,6 @@
     <Using Include="Xunit" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nutrition.APIs\Nutrition.APIs.csproj" />
+    <ProjectReference Include="..\Services\Nutrition.APIs\Nutrition.APIs.csproj" />
   </ItemGroup>
 </Project>
