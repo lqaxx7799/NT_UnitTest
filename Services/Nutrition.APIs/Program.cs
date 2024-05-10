@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder
-                .WithOrigins("http://localhost:5173")
+                .WithOrigins("http://localhost:5173", "https://ashy-plant-07a8d8000.5.azurestaticapps.net")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
