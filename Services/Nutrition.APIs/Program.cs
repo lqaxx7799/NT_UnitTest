@@ -1,3 +1,5 @@
+using Azure.Messaging.ServiceBus;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Nutrition.APIs;
 using Nutrition.Library;
@@ -28,6 +30,32 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddSqlServer<NutritionContext>(appSettings.ConnectionStrings["DefaultConnection"]);
 AddBusinessServices(builder.Services);
+
+builder.Services.AddMassTransit(x =>
+{
+    x.SetKebabCaseEndpointNameFormatter();
+    x.UsingAzureServiceBus((context, cfg) =>
+    {
+        cfg.Host(appSettings.AzureServiceBusConfiguration.ConnectionString, h =>
+        {
+            h.TransportType = ServiceBusTransportType.AmqpWebSockets;
+        });
+        cfg.Message<NutritionCreatedEvent>(m => m.SetEntityName("NutritionCreatedTopic"));
+        // cfg.ReceiveEndpoint(appSettings.AzureServiceBusConfiguration.QueueName, e =>
+        // {
+        //     e.PrefetchCount = 100;
+
+        //     // number of messages to deliver concurrently
+        //     e.ConcurrentMessageLimit = 100;
+
+        //     // default, but shown for example
+        //     e.LockDuration = TimeSpan.FromMinutes(5);
+
+        //     // lock will be renewed up to 30 minutes
+        //     e.MaxAutoRenewDuration = TimeSpan.FromMinutes(30);
+        // });
+    });
+});
 
 var app = builder.Build();
 

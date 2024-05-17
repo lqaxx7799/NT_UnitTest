@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json;
+using MassTransit;
+using Microsoft.AspNetCore.Mvc;
+using Nutrition.Library;
 
 namespace Nutrition.APIs;
 
@@ -30,9 +33,16 @@ public static class NutritionEndpoints
         return Results.Ok(nutrition);
     }
 
-    public static async Task<IResult> Create([FromBody] Nutrition request, [FromServices] INutritionService nutritionService)
+    public static async Task<IResult> Create(
+        [FromBody] Nutrition request,
+        [FromServices] INutritionService nutritionService,
+        [FromServices] IPublishEndpoint publishEndpoint)
     {
         var nutrition = await nutritionService.Create(request);
+        await publishEndpoint.Publish(new NutritionCreatedEvent
+        {
+            Data = JsonSerializer.Serialize(nutrition)
+        });
         return Results.Ok(nutrition);
     }
 }
