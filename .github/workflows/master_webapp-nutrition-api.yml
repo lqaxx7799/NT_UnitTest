@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Test with dotnet CLI
-        run: dotnet test Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
+        run: dotnet test Tests/Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
 
   build:
     runs-on: ubuntu-latest

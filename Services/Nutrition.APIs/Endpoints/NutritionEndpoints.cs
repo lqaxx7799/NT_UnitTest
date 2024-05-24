@@ -9,7 +9,7 @@ public static class NutritionEndpoints
 {
     public static void UseNutritionEndpoints(this WebApplication app)
     {
-        var group = app.MapGroup("nutrition").WithOpenApi();
+        var group = app.MapGroup("nutrition/nutrition").WithOpenApi();
 
         group.MapGet("list", ListNutritions);
         group.MapGet("get", GetOne);

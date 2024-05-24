@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feedback-api
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: feedback-api
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: feedback-api
+        image: acgnutrition.azurecr.io/azuredocs/feedback-api:v1
+        ports:
+        - containerPort: 5001
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feedback-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5001
+  selector:
+    app: feedback-api

@@ -7,7 +7,7 @@ public static class FoodEndpoints
 {
     public static void UseFoodEndpoints(this WebApplication app)
     {
-        var group = app.MapGroup("food").WithOpenApi();
+        var group = app.MapGroup("nutrition/food").WithOpenApi();
 
         group.MapGet("list", ListFoods);
 

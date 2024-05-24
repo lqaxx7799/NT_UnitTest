@@ -1,0 +1,33 @@
+version: '3.4'
+services:
+  feedback:
+    container_name: feedback
+    build:
+      context: .
+      dockerfile: Services/Feedback.APIs/Dockerfile
+    ports:
+      - 5001:5001
+
+  nutrition:
+    container_name: nutrition
+    build:
+      context: .
+      dockerfile: Services/Nutrition.APIs/Dockerfile
+    ports:
+      - 5002:5002
+
+  storage:
+    container_name: storage
+    build:
+      context: .
+      dockerfile: Services/Storage.APIs/Dockerfile
+    ports:
+      - 5003:5003
+
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Clients/Nutrition.Web/Dockerfile
+    ports:
+      - 3000:3000

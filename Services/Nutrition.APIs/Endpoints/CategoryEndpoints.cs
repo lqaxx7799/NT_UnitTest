@@ -6,7 +6,7 @@ public static class CategoryEndpoints
 {
     public static void UseCategoryEndpoints(this WebApplication web)
     {
-        var group = web.MapGroup("category");
+        var group = web.MapGroup("nutrition/category");
         group.MapGet("list", ListCategories);
     }
 

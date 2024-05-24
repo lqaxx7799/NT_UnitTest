@@ -6,7 +6,7 @@ public static class ReportEndpoints
 {
     public static void UseReportEndpoints(this IEndpointRouteBuilder web)
     {
-        var group = web.MapGroup("report").WithOpenApi();
+        var group = web.MapGroup("nutrition/report").WithOpenApi();
         group.MapGet("nutritionProfile", GetNutritionProfileReport);
     }
 

@@ -6,7 +6,7 @@ public static class MealEndpoints
 {
     public static void UseMealEndpoints(this WebApplication web)
     {
-        var group = web.MapGroup("meal").WithOpenApi();
+        var group = web.MapGroup("nutrition/meal").WithOpenApi();
         group.MapGet("list", ListMeals);
         group.MapPost("create", CreateMeal);
     }
