@@ -53,5 +53,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseFeedbackEndpoints();
+app.UseHealthEndpoints();
 
 app.Run();

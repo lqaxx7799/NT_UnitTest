@@ -72,6 +72,7 @@ app.UseHttpsRedirection();
 
 app.UseCategoryEndpoints();
 app.UseFoodEndpoints();
+app.UseHealthEndpoints();
 app.UseMealEndpoints();
 app.UseNutritionEndpoints();
 app.UseReportEndpoints();

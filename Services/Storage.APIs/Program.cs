@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddAntiforgery();
 
 var blobConnectionString = builder.Configuration.GetSection("AzureStorageConfiguration").GetValue<string>("ConnectionString");
 var blobContainerName = builder.Configuration.GetSection("AzureStorageConfiguration").GetValue<string>("ContainerName");
@@ -21,7 +20,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-// app.UseAntiforgery();
+app.UseHealthEndpoints();
 app.UseStorageEndpoints();
 app.UseHttpsRedirection();
 
