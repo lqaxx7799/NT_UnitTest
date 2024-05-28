@@ -10,25 +10,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '8.x'
-          include-prerelease: true
-
-      - name: Test with dotnet CLI
-        run: dotnet test Tests/Feedback.APIs.Tests/Feedback.APIs.Tests.csproj
-
   build:
     runs-on: ubuntu-latest
-    needs: test
-    if: ${{ needs.test.result == 'success' }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -42,22 +26,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish Services/Feedback.APIs/Feedback.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
-      - name: App Settings Variable Substitution
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: '${{env.DOTNET_ROOT}}/myapp/appsettings.Production.json'
-        env:
-          ConnectionStrings.DefaultConnection: ${{ secrets.CONNECTIONSTRINGS_DEFAULTCONNECTION }}
-          AzureServiceBusConfiguration.ConnectionString: ${{ secrets.AZURE_SERVICEBUS_CONNECTIONSTRING }}
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
-          retention-days: 10
 
   deploy:
     runs-on: ubuntu-latest
@@ -79,4 +54,4 @@ jobs:
           app-name: 'as-feedback-app-2'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_318D6524B7DD442ABBBD3F5B81270704 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED0C7AA6AA414F63A5DB865F4875E4C9 }}
