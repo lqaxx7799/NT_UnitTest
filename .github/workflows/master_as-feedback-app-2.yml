@@ -49,7 +49,7 @@ jobs:
         with:
           files: '${{env.DOTNET_ROOT}}/myapp/appsettings.Production.json'
         env:
-          ConnectionStrings.DefaultConnection: ${{ secrets.CONNECTIONSTRINGS_DEFAULTCONNECTION }}
+          CosmoDBConfiguration.PrimaryKey: ${{ secrets.AZURE_COSMOSDB_PRIMARYKEY }}
           AzureServiceBusConfiguration.ConnectionString: ${{ secrets.AZURE_SERVICEBUS_CONNECTIONSTRING }}
 
       - name: Upload artifact for deployment job
