@@ -10,9 +10,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.x'
+          include-prerelease: true
+
+      - name: Test with dotnet CLI
+        run: dotnet test Tests/Nutrition.APIs.Tests/Nutrition.APIs.Tests.csproj
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    if: ${{ needs.test.result == 'success' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +42,15 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish Services/Nutrition.APIs/Nutrition.APIs.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: '${{env.DOTNET_ROOT}}/myapp/appsettings.Production.json'
+        env:
+          ConnectionStrings.DefaultConnection: ${{ secrets.CONNECTIONSTRINGS_DEFAULTCONNECTION }}
+          AzureServiceBusConfiguration.ConnectionString: ${{ secrets.AZURE_SERVICEBUS_CONNECTIONSTRING }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
