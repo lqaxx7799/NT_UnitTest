@@ -101,7 +101,7 @@ jobs:
           username: ${{ secrets.SERVICE_PRINCIPAL }}
           password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
       - run: |
-          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/nutrition-app:${{ github.sha }}
+          docker build ./Services/Nutrition.APIs/ -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/nutrition-app:${{ github.sha }}
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/nutrition-app:${{ github.sha }}
 
       - name: 'Deploy to Azure Container Instances'
