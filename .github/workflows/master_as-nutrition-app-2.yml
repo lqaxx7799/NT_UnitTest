@@ -114,4 +114,4 @@ jobs:
           registry-username: ${{ secrets.SERVICE_PRINCIPAL }}
           registry-password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
           name: aci-nutrition-app
-          location: 'southease asia'
+          location: 'southeastasia'
