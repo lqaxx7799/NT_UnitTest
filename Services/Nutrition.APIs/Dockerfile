@@ -2,6 +2,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /App
 
 # Copy everything
+COPY ../../Common/Nutrition.Business ../../Common/Nutrition.Business/
+COPY ../../Common/Nutrition.Library ../../Common/Nutrition.Library/
 COPY . ./
 # Restore as distinct layer
 RUN dotnet restore

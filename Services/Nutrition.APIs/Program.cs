@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Azure.Messaging.ServiceBus;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ using Nutrition.Library;
 var builder = WebApplication.CreateBuilder(args);
 
 var appSettings = builder.Configuration.Get<AppSettings>()!;
-
+Console.WriteLine(JsonSerializer.Serialize(appSettings));
 builder.Services.AddSingleton(appSettings);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
