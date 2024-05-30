@@ -6,12 +6,8 @@ using Nutrition.Library;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var configurationBuilder = new ConfigurationBuilder()
-    .SetBasePath(builder.Environment.ContentRootPath)
-    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
-    .AddEnvironmentVariables();
+var appSettings = builder.Configuration.Get<AppSettings>()!;
 
-var appSettings = configurationBuilder.Build().Get<AppSettings>()!;
 builder.Services.AddSingleton(appSettings);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
