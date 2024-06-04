@@ -8,6 +8,7 @@ public interface IMealService
 {
     Task<List<Meal>> GetAll(MealListRequest request);
     Task<Meal> Create(MealCreateRequest request);
+    Task<Meal> Update(Meal meal);
 }
 
 public class MealService : IMealService
@@ -67,5 +68,19 @@ public class MealService : IMealService
         await _nutritionContext.SaveChangesAsync();
 
         return entry.Entity;
+    }
+
+    public async Task<Meal> Update(Meal meal)
+    {
+        var existingMeal = await _nutritionContext.Meals.FirstOrDefaultAsync(x => x.Id == meal.Id) ?? throw new Exception($"Could not find meal for {meal.Id}");
+        existingMeal.Title = meal.Title;
+        existingMeal.Description = meal.Description;
+        existingMeal.CalculatedCalories = meal.CalculatedCalories;
+        existingMeal.MealTypeId = meal.MealTypeId;
+        existingMeal.From = meal.From;
+        existingMeal.To = meal.To;
+        _nutritionContext.Update(existingMeal);
+        await _nutritionContext.SaveChangesAsync();
+        return existingMeal;
     }
 }
