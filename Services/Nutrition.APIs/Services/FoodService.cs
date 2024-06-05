@@ -71,8 +71,12 @@ public class FoodService : IFoodService
 
     public async Task<Food> Update(Food food)
     {
-        var existingFood = await _nutritionContext.Foods.FirstOrDefaultAsync(x => x.Id == food.Id) ?? throw new Exception($"Could not find food for {food.Id}");
+        var existingFood = await _nutritionContext.Foods.FirstOrDefaultAsync(x => x.Id == food.Id && !x.IsDeleted)
+            ?? throw new Exception($"Could not find food for {food.Id}");
+
         existingFood.Name = food.Name;
+        existingFood.ModifiedAt = DateTimeOffset.Now;
+
         _nutritionContext.Update(existingFood);
         await _nutritionContext.SaveChangesAsync();
         return existingFood;
@@ -82,7 +86,7 @@ public class FoodService : IFoodService
     {
         var food = await _nutritionContext.Foods
             .Include(x => x.FoodCategories)
-            .FirstOrDefaultAsync(x => x.Id == id);
+            .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
         if (food?.FoodCategories is null)
         {
             throw new Exception($"Could not find food for {id}");
@@ -102,6 +106,9 @@ public class FoodService : IFoodService
                 CategoryId = categoryId
             });
         }
+
+        food.ModifiedAt = DateTimeOffset.Now;
+        _nutritionContext.Foods.Update(food);
 
         await _nutritionContext.SaveChangesAsync();
         return food;

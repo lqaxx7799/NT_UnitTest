@@ -8,11 +8,18 @@ public static class CategoryEndpoints
     {
         var group = web.MapGroup("nutrition/category");
         group.MapGet("list", ListCategories);
+        group.MapPost("create", CreateCategory);
     }
 
     public static async Task<IResult> ListCategories([FromServices] ICategoryService categoryService)
     {
         var categories = await categoryService.GetAll();
         return Results.Ok(categories);
+    }
+
+    public static async Task<IResult> CreateCategory([FromBody] Category request, [FromServices] ICategoryService categoryService)
+    {
+        var category = await categoryService.Create(request);
+        return Results.Ok(category);
     }
 }

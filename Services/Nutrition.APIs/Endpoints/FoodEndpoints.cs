@@ -43,20 +43,10 @@ public static class FoodEndpoints
         return Results.Ok(food);
     }
 
-    public static async Task<IResult> UpdateFood([FromBody] Food food, [FromServices] NutritionContext nutritionContext)
+    public static async Task<IResult> UpdateFood([FromBody] Food food, [FromServices] IFoodService foodService)
     {
-        var existingFood = await nutritionContext.Foods.FirstOrDefaultAsync(x => x.Id == food.Id && !x.IsDeleted);
-        if (existingFood is null)
-        {
-            return Results.BadRequest("Resource does not exist");
-        }
-
-        existingFood.Name = food.Name;
-        existingFood.ModifiedAt = DateTimeOffset.Now;
-
-        nutritionContext.Foods.Update(existingFood);
-        await nutritionContext.SaveChangesAsync();
-        return Results.Ok(existingFood);
+        var result = await foodService.Update(food);
+        return Results.Ok(result);
     }
 
     public static async Task<IResult> DeleteFood([FromQuery] Guid id, [FromServices] NutritionContext nutritionContext)

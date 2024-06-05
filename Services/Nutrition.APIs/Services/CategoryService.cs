@@ -24,6 +24,7 @@ public class CategoryService : ICategoryService
 
     public async Task<Category> Create(Category category)
     {
+        category.CreatedAt = DateTimeOffset.Now;
         var entity = await _nutritionContext.Categories.AddAsync(category);
         await _nutritionContext.SaveChangesAsync();
         return entity.Entity;
