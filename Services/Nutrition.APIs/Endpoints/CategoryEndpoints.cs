@@ -9,6 +9,7 @@ public static class CategoryEndpoints
         var group = web.MapGroup("nutrition/category");
         group.MapGet("list", ListCategories);
         group.MapPost("create", CreateCategory);
+        group.MapPut("update", UpdateCategory);
     }
 
     public static async Task<IResult> ListCategories([FromServices] ICategoryService categoryService)
@@ -21,5 +22,11 @@ public static class CategoryEndpoints
     {
         var category = await categoryService.Create(request);
         return Results.Ok(category);
+    }
+
+    public static async Task<IResult> UpdateCategory([FromBody] Category request, [FromServices] ICategoryService categoryService)
+    {
+        var result = await categoryService.Update(request);
+        return Results.Ok(result);
     }
 }

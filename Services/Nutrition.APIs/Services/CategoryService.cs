@@ -6,6 +6,7 @@ public interface ICategoryService
 {
     Task<List<Category>> GetAll();
     Task<Category> Create(Category category);
+    Task<Category> Update(Category category);
 }
 
 public class CategoryService : ICategoryService
@@ -28,5 +29,20 @@ public class CategoryService : ICategoryService
         var entity = await _nutritionContext.Categories.AddAsync(category);
         await _nutritionContext.SaveChangesAsync();
         return entity.Entity;
+    }
+
+    public async Task<Category> Update(Category category)
+    {
+        var existingCategory = await _nutritionContext.Categories.FirstOrDefaultAsync(x => x.Id == category.Id && !x.IsDeleted)
+            ?? throw new Exception($"Could not find category for {category.Id}");
+
+        existingCategory.Description = category.Description;
+        existingCategory.Name = category.Name;
+        existingCategory.ModifiedAt = DateTimeOffset.Now;
+
+        _nutritionContext.Categories.Update(existingCategory);
+        await _nutritionContext.SaveChangesAsync();
+
+        return existingCategory;
     }
 }
